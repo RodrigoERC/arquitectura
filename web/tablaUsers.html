@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title> Control de Usuarios</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="style/jquery-3.1.1.min.js"></script>
+        <script src="style/bootstrap-4.5.2/dist/js/bootstrap.js"></script>
+        <script src="style/sweetalert/dist/sweetalert2.all.js"></script>
+        <link rel="stylesheet" href="style/bootstrap-4.5.2/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="style/fontawesome-free-5.14.0-web/css/all.min.css">
+        <link rel="stylesheet" href="style/style.css">
+        <script src="style/sweetalert/dist/sweetalert2.min.css"></script>
+        <script src="js/funciones.js"></script>
+
+        <style type="text/css">
+            p.b {
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+        </style>
+    </head>
+    <body onload="detalleVehiculo()">
+        <!-- Modal -->
+        <div class="modal fade" id="modalFormulario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Agregar vehiculo.</h5>
+                        <button id="btnc" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+
+                    </div>
+                    <div class="modal-body">
+
+
+                        <div class="form-row">
+                            <div class="col-4 mb-3">
+                                <label for="txtNombre">Nombre(s):</label>
+                                <input type="text" class="form-control" id="txtNombre" maxlength="30" required> 
+                            </div>
+
+                            <div class="col-4 mb-3">
+                                <label for="txtApellidoPa">Apellido Paterno:</label>
+                                <input type="text" class="form-control" id="txtApellidoPa" maxlength="20" required>                             
+                            </div>  
+
+                            <div class="col-4 mb-3">
+                                <label for="txtApellidoMa">Apellido Materno</label>
+                                <input type="text" class="form-control" id="txtApellidoMa" maxlength="20" required>                             
+                            </div> 
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col-4 mb-3">
+                                <label for="txtNumSerie">Nombre de Usuario:</label>
+                                <input type="text" class="form-control" id="txtUser" maxlength="20" required> 
+                            </div>           
+
+                            <div class="col-4 mb-3">
+                                <label style="font-size: 95%" for="txtFechaV">Fecha de nacimiento:</label>
+                                <input type="date" id="txtFechaNa" class="form-control" required>
+                            </div>
+
+                            <div class="col-4 mb-3">
+                                <label for="txtCorreo">Email:</label>
+                                <input type="email" id="txtEmail" class="form-control" required>
+                            </div>
+
+                        </div>
+
+                        <div class="form-row">
+
+
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button id="btnSave" type="submit" class="btn button-agregar" onclick="guardarVehiculo()">
+                            <i class="fa fa-save">  </i> Guardar
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- Modal Update-->
+        <div class="modal fade" id="modalFormularioModificar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel2">Modificar usuario.</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+
+                    </div>
+                    <div class="modal-body">
+
+                        <form>
+
+                            <div class="form-row">
+                                <div class="col-4 mb-3">
+                                    <input type="hidden" id="idVehiculo"> 
+                                    <label for="txtNombreM">Nombre(s):</label>
+                                    <input type="text" class="form-control" id="txtNombreM" maxlength="30" required> 
+                                </div>
+
+                                <div class="col-4 mb-3">
+                                    <label for="txtApellidoPaM">Apellido Paterno:</label>
+                                    <input type="text" class="form-control" id="txtApellidoPaM" maxlength="20" required>                             
+                                </div>  
+
+                                <div class="col-4 mb-3">
+                                    <label for="txtApellidoMaM">Apellido Materno</label>
+                                    <input type="text" class="form-control" id="txtApellidoMaM" maxlength="20" required>                             
+                                </div> 
+                            </div>
+
+                            <div class="form-row">
+
+                                <div class="col-4 mb-3">
+                                    <label for="txtUserM">Nombre de Usuario:</label>
+                                    <input type="text" class="form-control" id="txtUserM" maxlength="20" required> 
+                                </div>           
+
+                                <div class="col-4 mb-3">
+                                    <label style="font-size: 95%" for="txtFechaNaM">Fecha de Nacimiento:</label>
+                                    <input type="date" id="txtFechaNaM" class="form-control" required>
+                                </div>
+
+                                <div class="col-4 mb-3">
+                                    <label for="txtEmailM">Email:</label>
+                                    <input type="email" id="txtEmailM" class="form-control" required>
+                                </div>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button id="btnUpdate" type="submit" class="btn button-agregar" onclick="modificarVehiculo()">
+                            <i class="fa fa-save"> </i>  Guardar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Table -->
+        <div class="col-12">
+            <div class="row-cols-1">            
+                <h2></h2>
+                <div class="card">
+                    <div class="card-footer" style="background-color: #0d47a1; color: white">
+                        <h2 style="text-align: center; font-family: Arial, Helvetica, sans-serif">Control de Usuarios</h2>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-12" id="primario">
+
+                            <div class="card-body d-flex"></div>
+
+                            <div class="card-body">
+
+                                <nav class="navbar navbar-light">
+                                    <a class="navbar-brand"><button class="btn button-agregar btn-sm" data-toggle="modal" data-target="#modalFormulario"><i class="fas fa-plus">    </i>    Agregar</button></a>
+
+
+                                    <form class="form-inline">
+                                        <input class="form-control mr-sm-2" id="txtSearch" type="search" onkeyup="buscarVehiculos()" placeholder="Buscar" aria-label="Search">                                        
+                                    </form>
+                                </nav>
+                                <div class="card-body d-flex">
+                                </div>
+
+                                <div class="table-responsive text-nowrap text-center-md">
+                                    <table class="table table-sm table-striped table-hover table-">
+                                        <thead class="text-md-center" style="background-color: #0056b3; color: white" >
+                                            <tr id="trVehiculo">
+                                                <th scope="col" >N°</th>
+                                                <th scope="col" >Nombre del Usuario</th>
+                                                <th scope="col">Nombre de usario</th>
+                                                <th scope="col">Fecha de verificación</th>                                             
+                                                <th scope="col">Email</th>     
+                                                <th scope="col">Editar</th>   
+                                            </tr>
+                                        </thead>
+                                        <tbody id="lstUser">                                                                 
+                                        </tbody>
+
+                                    </table>
+                                </div>                        
+                            </div>
+
+
+                        </div>             
+
+                        <div id="secundario">
+
+                        </div>                         
+                    </div>
+
+                </div>
+            </div>                    
+        </div>
+    </body>
+</html>

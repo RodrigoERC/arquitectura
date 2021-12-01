@@ -25,7 +25,7 @@
                         </div>
 
                         <div id="divMainContainerProducto" >
-                            <table class="centered responsive-table center-align bordered border-dark" id="">
+                            <table class="centered responsive-table center-align bordered border-dark" id="id">
                                 <thead class="  grey lighten-1 white-text center-align">
                                     <tr>
                                         <th>Nombre</th>
@@ -45,63 +45,7 @@
                         </div>
 
                     </div>
-                    <!-- Modal convertir unidad -->
-                    <div id="modal_boxConvertir" class="modal"> 
-                        <div class="modal-content">
-                            <div class="modal-header blue-grey darken-4 center-align col s12">
-                                <br>
-                                <h4 class="white-text"> Convertir Unidad</h4>
-                                <br>
-                            </div>
-                            <div class="row" style="margin-top: 50px">
-                                <div class="col s12">
-                                    <div class="row">
-                                        <div class="input col s4">
-                                            <label for="nombre"><strong>Cantidad a convertir</strong></label>
-                                            <input type="text" class="validate" id="txtCantidad5" onkeypress="return (event.charCode >= 48 && event.charCode <= 57 || event.charCode > 45 && event.charCode < 47)">                                            
-                                        </div>
-                                        <div class=" col s4">
-                                            <label for="select">Unidad de medida original</label>
-                                            <select id="unidadMedida4" name="unidadMedida" class="browser-default" >
-                                                <option value="">Seleccione la Unidad</option>
-                                                <option value="1">Gramos</option>                                                
-                                                <option value="2">Costales</option>
-                                                <option value="3">Mililitros</option>
-                                                <option value="4">Galones</option>
-                                            </select>
-                                        </div>
-                                        <div class=" col s4">
-                                            <label for="select">Unidad de medida a convertir</label>
-                                            <select id="unidadMedida5" name="unidadMedida" class="browser-default" >
-                                                <option value="">Seleccione la Unidad</option>
-                                                <option value="1">Kilogramos</option> 
-                                                <option value="2">Litros</option>
-                                            </select>
-                                        </div>                                          
-                                    </div>
-                                    <div class="col s12">
-                                        <div class="input col s4">
-                                            <label for="nombre"><strong>Kilos por costal</strong></label>
-                                            <input type="text" class="validate" id="txtKilosCostal">                                            
-                                        </div>
-                                        <div class="input col s4">
-                                            <label for="nombre"><strong>Litros por galón</strong></label>
-                                            <input type="text" class="validate" id="txtLitrosGalon">                                            
-                                        </div>
-                                        <div class="input col s4">
-                                            <label style="font-size: 20px; color: black;"><strong>Resultado</strong></label><br>
-                                            <label style="display: inline-block; font-size: 20px; color: black;" id="txtResultado"></label>                                        
-                                        </div>
-                                        </div>
-                                   
-                                </div>       
-                                 <div class="modal-footer ">
-                            <a onclick="limpiarCamposUnidad()" class="modal-action modal-close waves-effect waves-red btn blue">Cancelar</a>
-                            <a class="waves-effect waves-red btn red" onclick="calcularUnidad()">Calcular</a>
-                        </div>
-                            </div>
-                        </div>
-                    </div>
+
                     
                     <!-- Modal Agregar -->
                     <div id="modal_box" class="modal modal-fixed-footer"> 

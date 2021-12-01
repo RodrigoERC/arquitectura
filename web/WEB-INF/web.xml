@@ -21,13 +21,13 @@
             jersey.config.server.provider.packages
         </param-name>
         <param-value>
-            org.utl.dongalleto.apiRest
+            org.utl.patron.appService
         </param-value>
     </init-param>
     </servlet>
     <servlet-mapping>
         <servlet-name>
-            DonGalleto
+            crudPatrones
         </servlet-name>
         <url-pattern>
             /api/*

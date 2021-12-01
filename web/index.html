@@ -38,11 +38,6 @@ and open the template in the editor.
         <!-- partial:index.partial.html -->
         <nav>
             <div style="height: 100px; background-color: #5E3023;">
-
-                <h5 class="brand-logo" >Administrador</h5>
-                <a id="logo-container" class="brand-logo right ">
-                    <img src="imagenes/gall.jpg" style="height: 95px; margin: 2px;">
-                </a>
                 <ul class="side-nav" id="mobile-demo">
                     <li><div class="user-view">
                             <div class="background ">
@@ -55,6 +50,8 @@ and open the template in the editor.
                 </ul>
             </div>
         </nav>
+        
+        
         <div class="col center-align">
             <div style="margin-left: 30px; margin-right: 30px">
                 <div class="section" id="divModulos">
@@ -65,22 +62,225 @@ and open the template in the editor.
                     and open the template in the editor.
                     -->
 
-                    <h2 class="header">Bienvenido Administrador</h2>
+                                      <div class="row">
+                        <div class="card">        
+                            <div>
+                                       <div class="col  center-align content">
+            <div class="" style="margin-left: 30px; margin-right: 30px">
+                <div class="section " id="divModulos">
+                    <div class="col m1">
+                    </div>
+                    <div class="row col m10">
+                        <div class="s12 azul-gris aclarar-5  border border-dark card">
+                            <h2 class="s12 center-align azul-gris aclarar-5 waves-effect waves-block waves-light"><i class="fas" aria-hidden="true" style="color:#b71c1c  "></i><strong>Materia Prima</strong></h2>
+                            <br>
+                        </div>
+                        <div class="row ">
+                            <div class="col s3">                                
+                            </div>
+                            <div class="col s6">
+                                <br>
+                                <div class="col-md-3">
+                                   <a class="waves-effect waves-light btn modal-trigger btn" style="background-color: #C08552"  href="#modal_box">+Agregar Materia</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s12 btn btn-block  grey lighten-1" onclick="mostrarMateriaActiva()">Activos</div>
+                        </div>
 
-                    <div class="row">
-                        <div class="card">
-                            <div class="card-image" >
-                                <div align="center"><img src="imagenes/materia.jpg" alt="" style="height: 200px; width: 200px;" onclick="cargarMateriaAdministrador()"/></div>
-                                <span class="card-title"></span>
-                            </div>          
-                            <div class="card-action">
-                                <a onclick="cargarMateriaAdministrador()" class="black-text">Materia Prima</a>
+                        <div id="divMainContainerProducto" >
+                            <table class="centered responsive-table center-align bordered border-dark" id="id">
+                                <thead class="  grey lighten-1 white-text center-align">
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Precio</th>
+                                        <th>Cantidad</th>
+                                        <th>Unidad</th>                                        
+                                        <th>Proveedor</th>
+                                        <th>Marca</th>
+                                        <th>Semáforo</th>
+                                        <th>Agregar más materia</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tablaMateriaActi" class="center-align bordered border-dark">
+                                </tbody>
+                            </table>                
+                        </div>
+
+                    </div>
+
+                    
+                    <!-- Modal Agregar -->
+                    <div id="modal_box" class="modal modal-fixed-footer"> 
+                        <div class="modal-content">
+                            <div class="modal-header blue-grey darken-4 center-align col s12">
+                                <br>
+                                <h4 class="white-text"> Agregar Materia</h4>
+                                <br>
+                            </div>
+                            <div class="row" style="margin-top: 50px">
+                                <div class="col s12">
+                                    <div class="row">
+                                        <div class="input col s4">
+                                            <label for="nombre"><strong>Nombre del Producto</strong></label>
+                                                <input type="text" class="validate" id="txtNombre">                                            
+                                        </div>
+                                        <div class="input col s4">                                            
+                                            <label for="precio"><strong>Precio del Producto</strong></label>
+                                            <input type="text" class="validate" id="txtPrecio" >
+                                        </div>
+                                        <div class=" col s4">
+                                            <label for="select">Unidad de medida</label>
+                                            <select id="unidadMedida" name="unidadMedida" class="browser-default" >
+                                                <option value="Kilogramos">Kilogramos</option> 
+                                                <option value="Litros">Litros</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class=" col s4">
+                                        <label for="select">Cantidad</label>
+                                        <input type="text" class="validate" id="txtCantidad">
+                                    </div>
+                                      <div class=" col s4">
+                                        <label for="select">Proveedor</label>
+                                        <select id="lsProveedores" name="lsProveedores" class="browser-default" required></select>
+                                    </div>
+                                </div>       
+                            </div>
+                        </div>
+                        <div class="modal-footer ">
+                            <a onclick="limpiarCamposMateria()" class="modal-action modal-close waves-effect waves-red btn blue">Cancelar</a>
+                            <a class="waves-effect waves-red btn red" onclick="validarCamposMateria()">Guardar Producto </a>
+                        </div>
+                    </div>
+
+
+                    <!-- Moda Modificar  -->
+                    <div id="modal_box_ModificarMateria" class="modal modal-fixed-footer"> 
+                        <div class="modal-content">
+                            <div class="modal-header  blue-grey darken-4 center-align col s12">
+                                <br>
+                                <h4 class="white-text"> Modificar Producto </h4>
+                                <br>
+                            </div>                                        
+                            <div class="row" style="margin-top: 50px">
+                                <div class="col s12">
+                                    <div class="row">
+                                        <input id="txtIdMateria" name="txtIdMateria"  type="hidden" >
+                                        <div class="input col s4">
+                                            <label for="nombre"><strong>Nombre del Producto</strong></label>
+                                                <input type="text" class="validate" id="txtNombre2">                                            
+                                        </div>
+                                        <div class="input col s4">                                            
+                                            <label for="precio"><strong>Precio del Producto</strong></label>
+                                            <input type="text" class="validate" id="txtPrecio2" >
+                                        </div>
+                                        <div class=" col s4">
+                                            <label for="select">Unidad de medida</label>
+                                            <select id="unidadMedida2" name="unidadMedida" class="browser-default" required>
+                                                <option value="Kilogramos">Kilogramos</option> 
+                                                <option value="Litros">Litros</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class=" col s4">
+                                        <label for="select">Cantidad</label>
+                                        <input type="text" class="validate" id="txtCantidad2">
+                                    </div>
+                                      <div class=" col s4">
+                                        <label for="select">Proveedor</label>
+                                        <select id="lsProveedores2" name="lsProveedores2" class="browser-default" required></select>
+                                    </div>
+                                </div>       
+                            </div>      
+                            </div>
+                        <div class="modal-footer ">
+                            <a class="modal-action modal-close  waves-effect waves-red btn pink" onclick="eliminarMateria()">Eliminar Materia </a>
+                            <a  class="modal-action modal-close waves-effect waves-red btn blue">Cancelar</a>
+                            <a class="waves-effect waves-red btn red" onclick="guardarModificarMateria()">Modificar Materia </a>
+                        </div>
+                        </div>                 
+                    </div>
+                </div>
+            </div>   
+        </div>
+        <!-- Modal agregar mas cantidad -->
+        <div id="modal_boxCantidad" class="modal"> 
+                        <div class="modal-content">
+                            <div class="modal-header blue-grey darken-4 center-align col s12">
+                                <br>
+                                <h4 class="white-text"> Agregar mas cantidad de materia</h4>
+                                <br>
+                            </div>
+                            <div class="row" style="margin-top: 50px">
+                                <div class="col s12">
+                                    <div class="row">
+                                        <div class="input col s4">
+                                            <label for="nombre"><strong>Cantidad</strong></label>
+                                            <input type="text" class="validate" id="txtCantidad6">                                            
+                                        </div>                                                                           
+                                    </div>                                   
+                                </div>       
+                                 <div class="modal-footer ">
+                            <a onclick="limpiarCamposCantidad()" class="modal-action modal-close waves-effect waves-red btn blue">Cancelar</a>
+                            <a class="waves-effect waves-red btn red" onclick="guardarCantidad()">Agregar Cantidad</a>
+                        </div>
+                            </div>
+                        </div>
+                    </div>
+    <script>
+            $(document).ready(function () {
+// the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+                $('.modal').modal();
+            });
+
+</script>
+<script>
+    let unidad1 = document.getElementById("unidadMedida4");
+    let unidad2 = document.getElementById("unidadMedida5");
+    
+    unidad1.addEventListener("change", () => {
+     let texto = unidad1.options[unidad1.selectedIndex].text;
+     if (texto === "Gramos") {
+       unidad2[2].disabled = true;
+       unidad2[1].disabled = false;
+       document.getElementById("txtKilosCostal").disabled = true;
+                  document.getElementById("txtLitrosGalon").disabled = true;
+      }else{
+              if(texto === "Costales"){
+                  unidad2[2].disabled = true;
+                  unidad2[1].disabled = false;
+                  document.getElementById("txtKilosCostal").disabled = false;
+                  document.getElementById("txtLitrosGalon").disabled = true;
+              }else{
+                   if (texto === "Mililitros"){
+                    unidad2[1].disabled = true;
+                    unidad2[2].disabled = false;
+                    document.getElementById("txtKilosCostal").disabled = true;                    
+                    document.getElementById("txtLitrosGalon").disabled = true;
+                }else{
+                    if(texto === "Galones"){
+                        unidad2[1].disabled = true;
+                        unidad2[2].disabled = false;
+                        document.getElementById("txtLitrosGalon").disabled = false;
+                        document.getElementById("txtKilosCostal").disabled = true;
+                    }
+                }
+              }          
+      }
+    });
+</script>
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>   
-        </div>
+        
         <footer class="page-footer" style="background-color: #5E3023; align-content: flex-end">
             <div class="footer-copyright">
                 <div class="container center-align">

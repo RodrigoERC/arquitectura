@@ -261,46 +261,6 @@ function guardarModificarMateria() {
     limpiarCamposMateria();
 }
 
-function cargarProveedor() {
-    $.ajax(
-            {
-                type: "POST",
-                url: "api/proveedor/getProvedorActivo",
-                async: false
-            }).done(
-            function (data) {
-                var proveedor = "";
-                proveedor = "<option value=''>Seleccione el Proveedor </option>";
-                for (var i = 0; i < data.length; i++) {
-                    proveedor += "<option value='" + data[i].idProveedor + "'>";
-                    proveedor += "<td>" + data[i].persona.nombre + "</td>";
-                    proveedor += "</option>";
-                }
-                $('#lsProveedores').html(proveedor);
-            }
-    );
-}
-
-function cargarProveedor2() {
-    $.ajax(
-            {
-                type: "POST",
-                url: "api/proveedor/getProvedorActivo",
-                async: false
-            }).done(
-            function (data) {
-                var proveedor = "";
-                proveedor = "<option value=''>Seleccione el Proveedor </option>";
-                for (var i = 0; i < data.length; i++) {
-                    proveedor += "<option value='" + data[i].idProveedor + "'>";
-                    proveedor += "<td>" + data[i].persona.nombre + "</td>";
-                    proveedor += "</option>";
-                }
-                $('#lsProveedores2').html(proveedor);
-            }
-    );
-}
-
 function limpiarCamposMateria(){
     $('#txtNombre').val("");
     $('#txtPrecio').val("");
