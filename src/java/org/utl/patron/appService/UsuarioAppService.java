@@ -17,6 +17,7 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Application;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import org.utl.patron.controladores.UsuarioControl;
 
 /**
  *
@@ -24,18 +25,22 @@ import javax.ws.rs.core.Response;
  */
 public class UsuarioAppService extends Application {
     
+    UsuarioControl uc;
+    
     //ControlDatosVehiculo cdv;
     /*******************************USERS**********************************/
     @GET
     @Path("getAllUser")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAllUser() {
-        cdv = new ControlDatosVehiculo();
+        
+        uc = new UsuarioControl();
+        
         Gson conversor = new Gson();
         String out = "";
         List<DatosVehiculo> listaDV = new ArrayList<>();
         try {
-            listaDV = cdv.getAll();
+            listaDV = uc.;
             out = conversor.toJson(listaDV);
         } catch (Exception e) {
             e.printStackTrace();

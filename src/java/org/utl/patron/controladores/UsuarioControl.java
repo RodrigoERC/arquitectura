@@ -6,6 +6,7 @@
 package org.utl.patron.controladores;
 
 import org.utl.patron.UsuarioVistas.UsuariosActualizacion;
+import org.utl.patron.UsuarioVistas.UsuariosRegistro;
 import org.utl.patron.UsuarioVistas.UsuariosTabla;
 import org.utl.patron.model.Usuario;
 
@@ -18,7 +19,14 @@ public class UsuarioControl {
     
     UsuariosActualizacion ua = new UsuariosActualizacion();
     
+    
+    
+    
     UsuariosTabla ut = new UsuariosTabla();
+    
+    UsuariosRegistro ur = new UsuariosRegistro();
+    
+    
     
     
 }

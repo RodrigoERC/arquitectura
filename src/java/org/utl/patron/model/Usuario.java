@@ -56,18 +56,14 @@ public class Usuario {
         this.correo = correo;
     }
 
-//    public Usuario(int idUsuario, String nombre, String username, String fechaNacimiento, String correo) {
-//        this.idUsuario = idUsuario;
-//        this.nombre = nombre;
-//        this.username = username;
-//        this.fechaNacimiento = fechaNacimiento;
-//        this.correo = correo;
-//    }
-    
-      public Usuario(String nombre, String username) {        
+    public Usuario(int idUsuario, String nombre, String username, String fechaNacimiento, String correo) {
+        this.idUsuario = idUsuario;
         this.nombre = nombre;
         this.username = username;
+        this.fechaNacimiento = fechaNacimiento;
+        this.correo = correo;
     }
+    
     
      
     
