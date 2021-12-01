@@ -5,10 +5,20 @@
  */
 package org.utl.patron.commandHandler;
 
+import org.utl.patron.Commands.RegistroUsuarioCommand;
+import org.utl.patron.model.Usuario;
+
 /**
  *
  * @author HOME
  */
 public class UsuarioCommandHandler {
+    
+//    public String registroUsuario(RegistroUsuarioCommand ru){
+//    
+//        //Usuario u = new Usuario(ru.getNombre(),ru.getUsername());
+//        
+//        
+//    }
     
 }

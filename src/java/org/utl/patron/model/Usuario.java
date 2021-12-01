@@ -10,20 +10,18 @@ package org.utl.patron.model;
  * @author HOME
  */
 public class Usuario {
-    private int idSujeto;
+    private int idUsuario;
     private String nombre;
-    private String apellidoPaterno;
-    private String apellidoMaterno;
     private String username;
     private String fechaNacimiento;
     private String correo;
 
-    public int getIdSujeto() {
-        return idSujeto;
+    public int getidUsuario() {
+        return idUsuario;
     }
 
-    public void setIdSujeto(int idSujeto) {
-        this.idSujeto = idSujeto;
+    public void setIdSujeto(int idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     public String getNombre() {
@@ -32,22 +30,6 @@ public class Usuario {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public String getApellidoPaterno() {
-        return apellidoPaterno;
-    }
-
-    public void setApellidoPaterno(String apellidoPaterno) {
-        this.apellidoPaterno = apellidoPaterno;
-    }
-
-    public String getApellidoMaterno() {
-        return apellidoMaterno;
-    }
-
-    public void setApellidoMaterno(String apellidoMaterno) {
-        this.apellidoMaterno = apellidoMaterno;
     }
 
     public String getUsername() {
@@ -73,6 +55,20 @@ public class Usuario {
     public void setCorreo(String correo) {
         this.correo = correo;
     }
+
+//    public Usuario(int idUsuario, String nombre, String username, String fechaNacimiento, String correo) {
+//        this.idUsuario = idUsuario;
+//        this.nombre = nombre;
+//        this.username = username;
+//        this.fechaNacimiento = fechaNacimiento;
+//        this.correo = correo;
+//    }
+    
+      public Usuario(String nombre, String username) {        
+        this.nombre = nombre;
+        this.username = username;
+    }
+    
      
     
 }

@@ -5,10 +5,19 @@
  */
 package org.utl.patron.viewModel;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import org.utl.patron.dao.ConexionSQL;
+import org.utl.patron.model.Usuario;
+
 /**
  *
  * @author HOME
  */
 public class UsuarioUpdateViewModel {
+
     
 }
